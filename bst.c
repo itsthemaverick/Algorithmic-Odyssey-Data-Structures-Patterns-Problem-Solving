@@ -51,6 +51,10 @@ int main()
     {
         printf("\n %d NOT Found !");
     }
+    int del;
+    printf("\n Enter The Value You Want to delete :");
+    scanf("%d", &del);
+    delete(&bt, del);
 }
 
 void insert(struct btnode **sr, int data)
@@ -120,4 +124,67 @@ int search(struct btnode *sr, int val)
         }
     }
     return 0;
+}
+void delete(struct btnode **root, int del)
+{
+    int found;
+    struct btnode *parent, *x, *xs;
+
+    if (root = NULL)
+    {
+        printf("TREE IS EMPTY \n");
+        return;
+    }
+
+    parent = x = NULL;
+
+    locate(root, del, &parent, &x, &found);
+
+    if(found == FALSE){
+        printf("\n NODE not FOUND !");
+        return;
+    }
+
+    // del with node having two child 
+
+    if(x->left != NULL && x->right != NULL){
+        parent = x;
+        xs = x->right;
+        while (xs->left != NULL)
+        {
+            parent = xs;
+            xs = xs->left;
+        }
+        x->data = xs->data;
+        x = xs;
+        
+    }
+}
+
+void locate(struct btnode **root, int del, struct btnode **par, struct btnode **x, int *found)
+{
+
+    struct btnode *temp;
+    temp = *root;
+    *found = FALSE;
+    *par = NULL;
+
+    while (temp != NULL)
+    {
+        if (temp->data == del)
+        {
+            *x = temp;
+            *found = TRUE;
+            return;
+        }
+        *par = temp;
+        if (temp->data > del)
+        {
+            temp = temp->left;
+        }
+        else
+        {
+            temp = temp->right;
+        }
+    }
 }
