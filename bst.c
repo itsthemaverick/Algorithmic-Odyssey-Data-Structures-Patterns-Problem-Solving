@@ -34,6 +34,8 @@ int main()
     inorder(bt);
     printf("\n Preorder : ");
     preorder(bt);
+    printf("\n Postorder : ");
+    postorder(bt);
 }
 
 void insert(struct btnode **sr, int data)
@@ -74,5 +76,14 @@ void preorder(struct btnode *sr)
         printf(" %d \t", sr->data);
         preorder(sr->left);
         preorder(sr->right);
+    }
+}
+void postorder(struct btnode *sr)
+{
+    if (sr != NULL)
+    {
+        postorder(sr->left);
+        postorder(sr->right);
+        printf(" %d \t", sr->data);
     }
 }
