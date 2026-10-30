@@ -29,6 +29,19 @@ int binarySearch(int arr[], int n, int key) {
 
 
 int main(void) {
+
+int arr[MAX], n, key, choice, result;
+
+    printf("Enter the number of elements: ");
+    if (scanf("%d", &n) != 1 || n < 1 || n > MAX) {
+        printf("Invalid number of elements.\n");
+        return 1;
+    }
+
+    printf("Enter the roll numbers:\n");
+    for (int i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
     
     return 0;
 }
