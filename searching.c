@@ -42,6 +42,34 @@ int arr[MAX], n, key, choice, result;
     for (int i = 0; i < n; i++)
         scanf("%d", &arr[i]);
 
+    do {
+        printf("\n===== MENU =====\n");
+        printf("1. Linear Search\n");
+        printf("2. Binary Search\n");
+        printf("3. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter roll number to search: ");
+                scanf("%d", &key);
+
+                result = linearSearch(arr, n, key);
+
+                if (result != -1)
+                    printf("Roll number found at index %d.\n", result);
+                else
+                    printf("Roll number not found.\n");
+                break;
+
+            
+
+            default:
+                printf("Invalid choice. Please try again.\n");
+        }
+    } while (choice != 3);
+    
     
     return 0;
 }
