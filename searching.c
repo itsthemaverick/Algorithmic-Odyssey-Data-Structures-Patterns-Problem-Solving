@@ -73,7 +73,27 @@ int arr[MAX], n, key, choice, result;
                     printf("Roll number not found.\n");
                 break;
 
-            
+            case 2:
+                bubbleSort(arr, n);
+
+                printf("Sorted array: ");
+                for (int i = 0; i < n; i++)
+                    printf("%d ", arr[i]);
+
+                printf("\nEnter roll number to search: ");
+                scanf("%d", &key);
+
+                result = binarySearch(arr, n, key);
+
+                if (result != -1)
+                    printf("Roll number found at index %d in the sorted array.\n", result);
+                else
+                    printf("Roll number not found.\n");
+                break;
+
+            case 3:
+                printf("Exiting program...\n");
+                break;
 
             default:
                 printf("Invalid choice. Please try again.\n");
