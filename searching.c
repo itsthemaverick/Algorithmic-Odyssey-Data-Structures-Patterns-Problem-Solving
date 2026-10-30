@@ -100,6 +100,5 @@ int arr[MAX], n, key, choice, result;
         }
     } while (choice != 3);
     
-    
     return 0;
 }
