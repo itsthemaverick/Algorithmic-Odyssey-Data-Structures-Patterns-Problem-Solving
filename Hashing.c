@@ -10,3 +10,18 @@ void initialize(){
     }
     
 }
+void Display( int table[]){
+
+    printf("\n INDEX : KEY \n");
+    for (size_t i = 0; i < SIZE; i++)
+    {
+        if (table[i] == -1)
+        {
+            printf(" %d -> EMPTY \n ",i);
+        }
+        printf(" %d -> %d \n ",i,table[i]);
+    }
+    
+
+}
+
